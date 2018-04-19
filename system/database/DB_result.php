@@ -352,6 +352,50 @@ class CI_DB_result {
     }
 
     /**
+     * Query result. "object" version.
+     * add by xiaogao, 180419
+     * @return	object
+     */
+    public function result_key($key)
+    {
+        if (count($this->result_array) > 0)
+        {
+            $res = [];
+            foreach($this->result_array as $r){
+                $res[$r[$key]] = $r;
+            }
+            return $res;
+        }
+
+        // In the event that query caching is on, the result_id variable
+        // will not be a valid resource so we'll simply return an empty
+        // array.
+        if ( ! $this->result_id OR $this->num_rows === 0)
+        {
+            return array();
+        }
+
+        if (($c = count($this->result_object)) > 0)
+        {
+            $res = [];
+            for ($i = 0; $i < $c; $i++)
+            {
+                $res[(array) $this->result_object[$i][$key]] = $this->result_object[$i];
+            }
+
+            return $res;
+        }
+
+        is_null($this->row_data) OR $this->data_seek(0);
+        while ($row = $this->_fetch_object())
+        {
+            $this->result_array[$row->$key] = $row;
+        }
+
+        return $this->result_array;
+    }
+
+    /**
      * Query result. "array"  col.
      * add by xiaogao, 180118
      * @return	array
@@ -376,10 +420,10 @@ class CI_DB_result {
         {
             for ($i = 0; $i < $c; $i++)
             {
-                $this->result_array[$i] = (array) $this->result_object[$i][$field_name];
+                $res[$i] = $this->result_object[$i]->$field_name;
             }
 
-            return $this->result_array;
+            return $res;
         }
 
         is_null($this->row_data) OR $this->data_seek(0);

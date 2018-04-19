@@ -1,29 +1,35 @@
 
-</section>
-<!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
+<!-- /#wrapper -->
 
-<?php require(VIEWPATH.'copyright.php')?>
+<!-- jQuery -->
+<script src="<?=STA_URL?>vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="<?=STA_URL?>vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="<?=STA_URL?>vendor/metisMenu/metisMenu.min.js"></script>
 
 
-</div>
-<!-- ./wrapper -->
+<!-- DataTables JavaScript -->
+<script src="<?=STA_URL?>vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="<?=STA_URL?>vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="<?=STA_URL?>vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="<?=STA_URL?>dist/js/sb-admin-2.js"></script>
 
 
-<!-- jQuery 2.2.3 -->
-<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="<?=STA_URL?>bootstrap/js/bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="<?=STA_URL?>plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="<?=STA_URL?>plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="<?=STA_URL?>dist/js/admin_app.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?=STA_URL?>dist/js/common_temp.js"></script>
-<script src="<?=STA_URL?>dist/js/admin_init.js"></script>
+<!-- Flot Charts JavaScript -->
+<script src="<?=STA_URL?>vendor/flot/excanvas.min.js"></script>
+<script src="<?=STA_URL?>vendor/flot/jquery.flot.js"></script>
+<script src="<?=STA_URL?>vendor/flot/jquery.flot.pie.js"></script>
+<script src="<?=STA_URL?>vendor/flot/jquery.flot.resize.js"></script>
+<script src="<?=STA_URL?>vendor/flot/jquery.flot.time.js"></script>
+<script src="<?=STA_URL?>vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+<script src="<?=STA_URL?>data/flot-data.js"></script>
 
 </body>
+
 </html>
