@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-#require(APPPATH.'vendor/autoload.php');
-#use PhpOffice\PhpSpreadsheet\Spreadsheet;
-#use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+require(APPPATH.'vendor/autoload.php');
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Init extends CI_Controller {
 
@@ -163,16 +163,66 @@ class Init extends CI_Controller {
     }
 
     public function down_excel(){
-        
-    }
+        $report_obj = $this->db->get('report');
+        $rs = $report_obj->result();
+        $metadata_ids = $report_obj->result_array_col('metadata_id');
+        $mds = $this->db->where_in('id', $metadata_ids)->get('metadata')->result_key('id');
 
-    public function test(){
+        $cks = $this->db->get('checklist')->result_key('id');
+        foreach($rs as &$r){
+            $r->md = $mds[$r->metadata_id];
+            $r->rc = $this->db->get_where('report_check', ['report_id'=>$r->id])->result_key('checklist_id');
+        }
+
+        $this->view_data['rs'] = $rs;
+        $this->view_data['cks'] = $cks;
+
+
+        $head_arr = [
+            'Country','Vend Name','Product Group','Card','Product no','Name','Po Num','Del Method','Ref Desc','Po Qty','Conf Date','Name of sub-contractors ','Town of sub-contractors ','Request QC Date','Remark','Site Spec Sheet Received','Site QC Sample Received','Final Inspection Date','Final inspection result','Sampling size'
+        ];
+        $head_arr = [
+            'Po Num','final_inspection_date', 'final_inspection_result'
+        ];
+
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
-        $sheet->setCellValue('A1', 'Hello World !');
+
+        for($i=1;$i<=count($head_arr);$i++){
+            $sheet->setCellValueByColumnAndRow($i, 1, $head_arr[$i-1]);
+        }
+
+        #xg_dump($rs, 1);
+        $n=0;
+        foreach($rs as &$r){
+            $sheet->setCellValueByColumnAndRow(1, 2+$n, $r->Po_Num);
+            $sheet->setCellValueByColumnAndRow(2, 2+$n, $r->final_inspection_date);
+            $sheet->setCellValueByColumnAndRow(3, 2+$n, $r->final_inspection_result);
+            $n++;
+        }
+
+        $n = 0;
+        foreach($cks as &$ck){
+            $n++;
+            $sheet->setCellValueByColumnAndRow($n+3, 1, $ck->name);
+            $m=0;
+            foreach($rs as &$r){
+                $m++;
+                if(!isset($r->rc[$ck->id])) continue;
+                $sheet->setCellValueByColumnAndRow($n+3, 1+$m, $r->rc[$ck->id]->defect_QTY);
+            }
+        }
 
         $writer = new Xlsx($spreadsheet);
-        $writer->save(APPPATH.'/hello world.xlsx');
+        $writer->save(FCPATH.'/_down/demo.xlsx');
+
+        $jump_url = base_url().'_down/demo.xlsx';
+        header("Location: $jump_url");
+    }
+
+
+    public function test(){
+
     }
 }

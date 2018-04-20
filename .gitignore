@@ -1,5 +1,8 @@
 .DS_Store
 
+_down/*
+!_down/index.html
+
 application/cache/*
 !application/cache/index.html
 
@@ -14,7 +17,9 @@ user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
-/application/vendor/
+
+
+#/application/vendor/
 
 # IDE Files
 #-------------------------

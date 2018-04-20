@@ -13,3 +13,14 @@ function xg_dump($param, $isdie = false, $condition = null){
     if($isdie) die;
 }
 
+
+//xiaogao print_r
+function xg_print($param, $isdie = false, $condition = null){
+    header('Content-type: text/html; charset=utf-8');
+
+    if($condition !== null && !$condition) {
+        return 0;
+    }
+    print_r($param);
+    if($isdie) die;
+}

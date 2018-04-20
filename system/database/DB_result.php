@@ -309,7 +309,7 @@ class CI_DB_result {
 
     /**
      * Query result. "array" version.
-     *
+     * add by xiaogao
      * @return	array
      */
     public function result_key_array($key)
