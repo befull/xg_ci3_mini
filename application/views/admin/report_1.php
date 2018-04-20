@@ -144,4 +144,4 @@
 <script>
     var base_url = '<?=site_url()?>';
 </script>
-<script src="<?=STA_URL?>js_view/report_1.js"></script>
+<script src="<?=STA_URL?>_my_js/report_1.js"></script>

@@ -160,4 +160,4 @@
         </div>
         <!-- /#page-wrapper -->
 <?php require(__DIR__.'/foot.php')?>
-<script src="<?=STA_URL?>js_view/report_2.js"></script>
+<script src="<?=STA_URL?>_my_js/report_2.js"></script>
