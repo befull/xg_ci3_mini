@@ -55,4 +55,33 @@ class Front extends My_Controller {
         $this->load->view('demo/front_demo3');
     }
 
+
+    #最简便的分页链接输出和数据记录输出写法
+    public function demo7(){
+        #配置分页信息
+        $page = $this->uri->segment(3,1);
+        $per_page = 20; #默认配置文件在 application/config/pagination.php
+
+
+        $where = [];
+        $count = $this->db
+            ->where($where)
+            ->or_like('zdjs', $this->jwuser['realname'])
+            ->count_all_results('jzxx', false); #第二个参数，在手册里说只保留了select的设置， 实际上是不重置筛选条件
+        $rs = $this->db
+            ->order_by('jz_id', 'DESC')
+            ->limit($per_page,($page - 1)*$per_page)
+            ->get()->result();
+
+        $this->view_data['list'] = $rs;
+
+
+        $this->load->library('pagination');
+        $this->view_data['pageinfo'] = $this->pagination->xg_create_links(site_url('Jiangzhuang/my_list/'), $count, $per_page);
+
+        $this->view_data['page_title']="我的获奖信息列表";
+        $this->load->view('admin/my_list_jz',$this->view_data);
+
+    }
+
 }
