@@ -2,6 +2,7 @@
 + git提交加入SQL文件，到application目录下
 + 登录后的左侧菜单显示调整
 + 移动端的暂缓
++ GITHUB的前端设计很简洁
 
 
 # update log:
