@@ -45,7 +45,7 @@ class Login extends Ad_Controller {
 
 
 
-        $this->load->view('demo_admin/login', $this->view_data);
+        $this->load->view('admin/login', $this->view_data);
 	}
 
     public function logout()

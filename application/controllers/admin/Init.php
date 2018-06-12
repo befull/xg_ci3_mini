@@ -8,7 +8,7 @@ class Init extends CI_Controller {
 	{
 
         $this->view_data['page_title'] = '控制台';
-		$this->load->view('demo_admin/init_index', $this->view_data);
+		$this->load->view('admin/init_index', $this->view_data);
 	}
 
 

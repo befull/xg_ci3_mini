@@ -2,7 +2,7 @@
 
 class Art_model extends MY_Model {
     protected $table_name = 'art';
-    protected $trash_table_name = 'trash_art';
+    protected $trash_table_name = 'art_trash';
 
     public function __construct()
     {

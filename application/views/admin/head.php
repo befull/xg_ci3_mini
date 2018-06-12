@@ -8,24 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>QC report - FGX</title>
+    <title><?=$page_title?> - <?=SITE_NAME?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?=STA_URL?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="<?=STA_URL?>vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
     <!-- DataTables CSS -->
     <link href="<?=STA_URL?>vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
     <!-- DataTables Responsive CSS -->
     <link href="<?=STA_URL?>vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="<?=STA_URL?>dist/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="<?=STA_URL?>vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -35,15 +29,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <style type="text/css">
-        .navbar-default .navbar-brand{color: #337ab7;}
-
-        .submit_top_line{
-            border-top:solid 1px #435A5F;
-        }
-        .table{margin-bottom:0;}
-    </style>
 
 </head>
 
@@ -60,14 +45,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><b>QC report - FGX</b></a>
+            <a class="navbar-brand" href="index.html">QC report manage - FGX</a>
         </div>
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown">
-                    Joy - Tester
+                    Tommy - Administrator
                 </a>
             </li>
             <li class="dropdown">
@@ -92,42 +77,39 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <!-- /input-group -->
+
+                    <li>
+                        <a href="3.1.index_all.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?=site_url('init/index')?>"><i class="fa fa-tasks fa-fw"></i> Add Report</a>
-                    </li>
-                    <li>
-                        <a href="2.2.1.report_1.php"><i class="fa fa-fw fa-database"></i> Down Excel</a>
+                        <a href="3.2.all_base_info.php"><i class="fa fa-tasks fa-fw"></i> All Item List</a>
                     </li>
                     <!--
-
                     <li>
-                        <a href="2.1.index_tester.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="2.2.my_base_info.php"><i class="fa fa-tasks fa-fw"></i> My Items</a>
-                    </li>
-                    <li>
-                        <a href="2.3.my_testing.php"><i class="fa fa-table fa-fw"></i> My Testing Report</a>
-                    </li>
-                    <li>
-                        <a href="2.4.my_submited.php"><i class="fa fa-th-list fa-fw"></i> My Submitted Report </a>
-                    </li>
-                    <li>
-                        <a href="2.5.my_finished.php"><i class="fa fa-th-list fa-fw"></i> My Finished Report </a>
+                        <a href="3"><i class="fa fa-table fa-fw"></i> All Editing Report</a>
                     </li>
                     -->
-
+                    <li>
+                        <a href="3.4.all_submited.php"><i class="fa fa-th-list fa-fw"></i> All Submitted Report </a>
+                    </li>
+                    <li>
+                        <a href="3.5.all_finished.php"><i class="fa fa-th-list fa-fw"></i> All Finished Report </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Statistics<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="3.6.1.statics_1.php">Detail of factory</a>
+                            </li>
+                            <li>
+                                <a href="3.6.2.statics_2.php">Fail Top 10</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-th-list fa-download"></i> Back up & Down </a>
+                    </li>
 
 
 
